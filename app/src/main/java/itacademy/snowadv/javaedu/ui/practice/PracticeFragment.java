@@ -44,6 +44,14 @@ public class PracticeFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if(taskAdapter != null) {
+            taskAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;

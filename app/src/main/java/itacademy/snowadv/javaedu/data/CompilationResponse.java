@@ -24,7 +24,7 @@ public class CompilationResponse {
 
     public String toMarkdownString(boolean isResultCorrect) {
         return "# Вывод [" + (isResultCorrect ? "корректный" : "некорректный") + "]:\n```\n" +
-                (isResultCorrect ? output : "[Скрыто]") + "\n```\n # Статистика:\nПамять: " + memory + " байт\n <br> Время: " + cpuTime
+                ((!isResultCorrect && getMemory() != null) ? "[Скрыто]" : output) + "\n```\n # Статистика:\nПамять: " + memory + " байт\n <br> Время: " + cpuTime
                 + " секунд";
     }
 }

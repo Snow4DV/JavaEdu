@@ -130,9 +130,6 @@ public class TaskActivity extends AppCompatActivity {
                     try {
                         boolean isValid = response.body().getOutput().equals(waitedResult);
                         displayCompilationResult(response.body(), isValid);
-                        if (isValid) {
-                            onTaskFinish();
-                        }
 
                     } catch (NullPointerException ex) {
                         Toast.makeText(TaskActivity.this, "Ошибка при получении результата " +
