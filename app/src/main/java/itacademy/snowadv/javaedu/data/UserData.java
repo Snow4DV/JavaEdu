@@ -133,10 +133,10 @@ public class UserData {
     }
 
     private void initQuickTasks() {
-        quickTaskList.add(new QuickTask("Какая функция используется для вывода текста без" +
+        quickTaskList.add(new QuickTask("Какой метод используется для вывода текста без" +
                 " перехода на следующую строку?", "System.out.print", "System.out.println",
                 "System.out.write", "System.out.writeln"));
-        quickTaskList.add(new QuickTask("Какая функция используется для вывода текста с" +
+        quickTaskList.add(new QuickTask("какой метод используется для вывода текста с" +
                 " переходом на следующую строку?", "System.out.println", "System.out.print",
                 "System.out.write", "System.out.writeln"));
         quickTaskList.add(new QuickTask("Какой тип данных из нижеперечисленных позволит хранить " +
