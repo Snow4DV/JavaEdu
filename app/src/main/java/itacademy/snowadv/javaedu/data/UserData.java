@@ -176,6 +176,18 @@ public class UserData {
         quickTaskList.add(new QuickTask("Какой тип данных из нижеперечисленных позволит хранить " +
                 "несколько целочисленных значенияй?", "int[]", "boolean",
                 "float", "int"));
+        quickTaskList.add(new QuickTask("Какой тип данных из нижеперечисленных является ссылочным?"
+                , "Object", "boolean",
+                "float", "int"));
+        quickTaskList.add(new QuickTask("Как сравниваются строки?"
+                , "С помощью .equals", "С помощью ==",
+                "С помощью &&", "С помощью &"));
+        quickTaskList.add(new QuickTask("С помощью какого оператора создаются новые ссылочные объекты?"
+                , "new", "create",
+                "Object()", "break"));
+        quickTaskList.add(new QuickTask("Как создать массив целых чисел длиной 5?"
+                , "int[] a = new int[4];", "int[] a = {1,2,3,4,5};",
+                "boolean[] a = new boolean[1];", "int[] a = new int[];"));
 
     }
 
