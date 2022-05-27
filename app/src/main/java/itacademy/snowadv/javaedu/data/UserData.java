@@ -11,11 +11,11 @@ public class UserData {
     private int tasksDoneAmount = 0;
     private int dailyGoal = 3;
 
-    public static final int THEORY_AMOUNT = 5;
-    public static final int TASKS_AMOUNT = 6;
+    public static final int THEORY_AMOUNT = 8;
+    public static final int TASKS_AMOUNT = 7;
 
-    private final Boolean[] theoryStatuses = {false,false,false,false,false};
-    private final Boolean[] tasksStatuses = {false,false,false,false,false,false};
+    private final Boolean[] theoryStatuses = {false,false,false,false,false, false, false, false};
+    private final Boolean[] tasksStatuses = {false,false,false,false,false,false, false};
 
     private String lastDailyResetDate;
 
@@ -123,6 +123,12 @@ public class UserData {
                 return R.string.theory_4;
             case 4:
                 return R.string.theory_5;
+            case 5:
+                return R.string.theory_6;
+            case 6:
+                return R.string.theory_7;
+            case 7:
+                return R.string.theory_8;
         }
     }
 
