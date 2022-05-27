@@ -28,7 +28,7 @@ public class ProgressFragment extends Fragment {
         binding.dailyGoalSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                userData.setSessionGoal(progress);
+                userData.setDailyGoal(progress);
                 updateByUserData();
             }
 
@@ -38,26 +38,31 @@ public class ProgressFragment extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+        binding.doQuickTaskButton.setOnClickListener(v -> {
+            QuickTestDialogFragment quickTestDialogFragment = new QuickTestDialogFragment(userData,
+                    this);
+            quickTestDialogFragment.show(getParentFragmentManager(), "Quick Task");
+        });
         return root;
     }
 
 
-    private void updateByUserData() {
+    protected void updateByUserData() {
         updateRings();
         setDashboardText();
         updateSeekbar();
     }
 
     private void updateSeekbar() {
-        binding.dailyGoalSeekbar.setProgress(userData.getSessionGoal());
+        binding.dailyGoalSeekbar.setProgress(userData.getDailyGoal());
         updateSeekbarText();
     }
 
     private void updateSeekbarText() {
         String difficulty;
-        if(userData.getSessionGoal() >= 7) {
+        if(userData.getDailyGoal() >= 7) {
             difficulty = getString(R.string.difficulty_high);
-        } else if(userData.getSessionGoal() >= 4) {
+        } else if(userData.getDailyGoal() >= 4) {
             difficulty = getString(R.string.difficulty_mid);
         } else {
             difficulty = getString(R.string.difficulty_low);
@@ -65,7 +70,7 @@ public class ProgressFragment extends Fragment {
         binding.difficultyOfDailyGoal.setText(getString(R.string.seekbar_difficulty_text,
                 difficulty));
         binding.dailyGoal.setText(getString(R.string.seekbar_amount_text,
-                userData.getSessionGoal()));
+                userData.getDailyGoal()));
     }
 
     private void updateRings() {

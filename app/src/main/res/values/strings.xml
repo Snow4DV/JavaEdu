@@ -103,4 +103,5 @@ public class MyProgram{\n
         <item>@string/theory_4</item>
         <item>@string/theory_5</item>
     </string-array>
+
 </resources>

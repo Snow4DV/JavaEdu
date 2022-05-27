@@ -14,6 +14,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import itacademy.snowadv.javaedu.data.UserData;
 import itacademy.snowadv.javaedu.databinding.ActivityMainBinding;
 
@@ -52,10 +56,13 @@ public class MainActivity extends AppCompatActivity {
         } catch(JsonSyntaxException exception) {
             Log.e(TAG, "getUserData failed to parse data from shared prefs:",
                     exception);
-            userData = new UserData();
         }
         if(userData == null) {
-            userData = new UserData();
+            userData = new UserData(new SimpleDateFormat("yyyy.MM.dd")
+                    .format(new Timestamp(System.currentTimeMillis())));
+        } else {
+            userData.updateDailyData(new SimpleDateFormat("yyyy.MM.dd")
+                    .format(new Timestamp(System.currentTimeMillis())));
         }
     }
 
@@ -76,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         UserData.saveUserDataInstance(userData);
         return userData;
     }
+
+
 
     @Override
     protected void onPause() {

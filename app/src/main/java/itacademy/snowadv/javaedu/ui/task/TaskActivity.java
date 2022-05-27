@@ -21,7 +21,6 @@ import itacademy.snowadv.javaedu.data.CompilationRequest;
 import itacademy.snowadv.javaedu.data.CompilationResponse;
 import itacademy.snowadv.javaedu.data.TaskData;
 import itacademy.snowadv.javaedu.data.UserData;
-import itacademy.snowadv.javaedu.databinding.ActivityMainBinding;
 import itacademy.snowadv.javaedu.databinding.ActivityTaskBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -119,6 +118,7 @@ public class TaskActivity extends AppCompatActivity {
     private void onTaskFinish() {
         finish();
         UserData.getUserDataInstance().setTaskStatus(taskID, true);
+        UserData.getUserDataInstance().increaseDailyTasksDoneCounter();
     }
 
     private void compile(String script, String waitedResult, String input) {
