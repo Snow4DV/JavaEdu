@@ -101,13 +101,13 @@ public class TaskActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                onTaskFinish();
+                onTaskFinish(isResultValid);
             }
         });
         alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                onTaskFinish();
+                onTaskFinish(isResultValid);
             }
         });
         AlertDialog alert = alertDialog.create();
@@ -115,10 +115,12 @@ public class TaskActivity extends AppCompatActivity {
     }
 
 
-    private void onTaskFinish() {
+    private void onTaskFinish(boolean isValid) {
         finish();
-        UserData.getUserDataInstance().setTaskStatus(taskID, true);
-        UserData.getUserDataInstance().increaseDailyTasksDoneCounter();
+        if(isValid) {
+            UserData.getUserDataInstance().setTaskStatus(taskID, true);
+            UserData.getUserDataInstance().increaseDailyTasksDoneCounter();
+        }
     }
 
     private void compile(String script, String waitedResult, String input) {
